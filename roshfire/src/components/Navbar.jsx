@@ -14,7 +14,7 @@ export default function Navbar(){
     return(
         <>
 
-            <div className=" relative h-[50px] flex items-center justify-center mt-3">
+            <div className=" relative h-[50px] flex items-center justify-center mt-7">
                 <div className=" absolute left-4 flex items-center h-[100%] text-[#9AA1AC] gap-1">
                     <div className="flex items-center extraSmallResFont m-0 p-0">
                         <p className="m-0 p-0">ENG</p>
@@ -39,6 +39,7 @@ export default function Navbar(){
                     links.map((link)=>{
                         return(
                             <div
+                                key={link.name}
                                 className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${selected === link.name ? "selectedOptionNavbar" : "text-[#9AA1AC]" }`}
                                 onClick={()=> setSelected(link.name)}
                             >
