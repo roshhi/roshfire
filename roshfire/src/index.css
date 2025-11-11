@@ -1,68 +1,82 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer utilities{
+  .flex-center {
+    @apply flex justify-center items-center
+  }
+  
+  .nav-active {
+    @apply h-[60%] p-2 flex justify-center items-center font-medium text-white bg-black cursor-pointer text-[min(10vw,15px)] rounded-md;
+  }
+  .nav-not-active {
+    @apply h-[60%] p-2 flex justify-center items-center font-medium text-white  hover:bg-[rgb(0,0,0)] hover:text-white  cursor-pointer text-[min(10vw,15px)] rounded-md;
+  }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  .extraSmallResFont{
+    @apply text-[min(3vw,10px)]
+  }
+  .smallResFont{
+    @apply text-[min(3vw,15px)]
+  }
+  .mediumResFont{
+    @apply text-[min(5vw,20px)]
+  }
+  .largeResFont{
+    @apply text-[min(7vw,28px)]
+  }
+  .xLargeResFont{
+    @apply text-[min(10vw,35px)]
+  }
+  .xxLargeResFont{
+    @apply text-[min(15vw,50px)]
+  }
+  .xxxLargeResFont{
+    @apply text-[min(25vw,65px)]
+  }
+  
 }
 
 body {
+  background-color:rgb(255, 255, 255);
+}
+/* Modern-Normalize CSS reset: */
+*{
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+line-height: 1.5;
+}
+h1, h2, h3, h4, h5, figure, p, ol, ul {
+margin: 0;
+}
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+ol[role="list"], ul[role="list"] {
+list-style: none;
+padding-inline: 0;
+}
+/* Modern-Normalize CSS reset ends here */
+
+.orbitron-font {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+.selectedOptionNavbar{
+  border-bottom: 1.5px solid #DFB159;
+  color: #DFB159;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  align-items: center;
 }
