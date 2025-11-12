@@ -12,9 +12,9 @@ export default function Order(){
             <div className="ml-3 flex flex-col gap-1 md:w-[40%] mt-5">
                     <p className="xLargeResFont font-bold">HOW TO ORDER</p>
                     <p className="text-gray-400">NOTHING EVER WAS THIS EASY! PICK A FIREARM AND CHECK OUT WITH YOUR OWN ADDRESS</p>
-                    <p className="smallResFont font-light">Please note: All firearm sales are subject to federal, state, and local 
-                        regulations. Firearms must be shipped to a licensed Federal Firearms License
-                        (FFL) dealer for background checks and final transfer.
+                    <p className="smallResFont font-light">We've made ordering simple and secure.
+                                Choose your product, complete checkout, and receive tracking details once your order ships.
+                                Our team ensures every item is safely packaged and delivered on time.
                     </p>
                     <div>
                         <p className="largeResFont font-medium">$2775.00</p>
