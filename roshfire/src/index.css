@@ -80,3 +80,9 @@ padding-inline: 0;
   display: flex;
   align-items: center;
 }
+.weaponGrid img{
+  height: 8rem;
+  width: 16rem;
+  padding: 5px;
+  object-fit: contain;
+}

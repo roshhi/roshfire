@@ -4,9 +4,9 @@ export default function Hero(){
 
     return(
         <>
-            <div className='flex flex-col md:flex-row items-center justify-evenly pb-[50px]'>
-                <div className="mt-[40px] ml-4 flex flex-col gap-1">
-                    <div className="flex gap-1 smallResFont md:mediumResFont xl:largeResFont">
+            <div className='flex flex-col md:flex-row items-center pb-[50px] md:pb-[150px]'>
+                <div className="mt-[40px] ml-[3.2vw] flex flex-col gap-1">
+                    <div className="flex gap-1 md:mediumResFont xl:largeResFont">
                         <p className="text-[#9AA1AC]">Welcome to</p>
                         <p className="text-[#DFB159]">ROSHFIRE</p>
                     </div>
@@ -19,9 +19,8 @@ export default function Hero(){
                         handpicked collection of premium arms designed to deliver 
                         unmatched craftsmanship and performance.
                     </p>
-                    <button className='bg-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:p-3 xl:font-semibold'>Get Started</button>
+                    <button className='bg-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:mediumResFont xl:font-semibold' >Get Started</button>
                 </div>
-
                 <div className='mt-8 pb-8'>
                     <img src={hero_gun} alt="A Pistol" className=' md:h-[40vh] xl:h-[55vh]' />
                 </div>
