@@ -105,7 +105,7 @@ export default function WeaponCategories(){
                     {
                         selected === "handgun" && pistols.map((pistol)=>{
                             return(
-                                <div key={pistol.name} className="grid place-items-center border-2 hover:border-yellow-500 transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <div key={pistol.name} className="grid place-items-center border-2 hover:border-yellow-500 hover:bg-[#f7dba7] rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
                                     <img src={pistol.src} alt={pistol.name + " image"} />
                                     <p className="smallResFont mt-5">{pistol.name}</p>
                                 </div>
@@ -115,7 +115,7 @@ export default function WeaponCategories(){
                     {
                         selected === "rifle" && rifles.map((rifle)=>{
                             return(
-                                <div key={rifle.name} className="grid place-items-center border-2 hover:border-yellow-500 transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <div key={rifle.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] hover:bg-[#f7dba7] transition-transform duration-300 hover:font-bold">
                                     <img src={rifle.src} alt={rifle.name + " image"} />
                                     <p className="smallResFont mt-5">{rifle.name}</p>
                                 </div>
@@ -125,7 +125,7 @@ export default function WeaponCategories(){
                     {
                         selected === "shotguns" && shotguns.map((shotgun)=>{
                             return(
-                                <div key={shotgun.name} className="grid place-items-center border-2 hover:border-yellow-500 transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <div key={shotgun.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] hover:bg-[#f7dba7] transition-transform duration-300 hover:font-bold">
                                     <img src={shotgun.src} alt={shotgun.name + " image"} />
                                     <p className="smallResFont mt-5">{shotgun.name}</p>
                                 </div>
@@ -135,7 +135,7 @@ export default function WeaponCategories(){
                     {
                         selected === "silencers" && silencers.map((silencer)=>{
                             return(
-                                <div key={silencer.name} className="grid place-items-center border-2 hover:border-yellow-500 transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <div key={silencer.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] hover:bg-[#f7dba7] transition-transform duration-300 hover:font-bold">
                                     <img className="!p-5" src={silencer.src} alt={silencer.name + " image"} />
                                     <p className="smallResFont mt-5">{silencer.name}</p>
                                 </div>
@@ -145,7 +145,7 @@ export default function WeaponCategories(){
                     {
                         selected === "knives" && knifes.map((knife)=>{
                             return(
-                                <div key={knife.name} className="grid place-items-center border-2 hover:border-yellow-500 transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <div key={knife.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] hover:bg-[#f7dba7] transition-transform duration-300 hover:font-bold">
                                     <img className="!p-5" src={knife.src} alt={knife.name + " image"} />
                                     <p className="smallResFont mt-5">{knife.name}</p>
                                 </div>

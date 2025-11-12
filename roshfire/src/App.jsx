@@ -1,6 +1,7 @@
 import Navbar from "./components/navbar"
 import Hero from "./components/hero"
 import WeaponCategories from "./components/WeaponCategories"
+import Order from "./components/Order"
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
         <Hero/>
       </div>
       <WeaponCategories/>
+      <Order/>
     </>
   )
 }

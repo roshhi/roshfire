@@ -19,7 +19,7 @@ export default function Hero(){
                         handpicked collection of premium arms designed to deliver 
                         unmatched craftsmanship and performance.
                     </p>
-                    <button className='bg-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:mediumResFont xl:font-semibold' >Get Started</button>
+                    <button className='bg-[#DFB159] border-4 border-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:mediumResFont xl:font-semibold hover:bg-white hover:text-[#DFB159] transition-colors delay-50' >Get Started</button>
                 </div>
                 <div className='mt-8 pb-8'>
                     <img src={hero_gun} alt="A Pistol" className=' md:h-[40vh] xl:h-[55vh]' />

@@ -29,7 +29,7 @@ export default function Navbar(){
                     ROSHFIRE
                 </div>
                 <div className="text-[rgb(10,10,10)] h-[100%] flex-center absolute right-4 lg:mr-[3.2vw]">
-                    <button className="bg-[#DFB159] h-[60%] w-[70px] rounded-[5px] text-white lg:w-[120px] lg:h-[80%] lg:p-1 lg:font-semibold xl:w-[150px] xl:h-[90%] xl:font-semibold xl:mediumResFont">Login</button>
+                    <button className="bg-[#DFB159] border-4 border-[#DFB159] h-[60%] w-[70px] rounded-[5px] text-white lg:w-[120px] lg:h-[80%] lg:p-1 lg:font-semibold xl:w-[150px] xl:h-[90%] xl:font-semibold xl:mediumResFont hover:bg-white hover:text-[#DFB159] transition-colors delay-50 ">Login</button>
                 </div>
             </div>
 
