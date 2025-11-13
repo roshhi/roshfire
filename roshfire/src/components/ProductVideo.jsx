@@ -11,7 +11,7 @@ export default function ProductVideo(){
     
 
     return(
-        <div className="flex-col gap-1 pt-10 flex-center">
+        <div className="flex-col gap-1 flex-center mb-[80px]">
             <h1 className="largeResFont text-center">OUR PRODUCT VIDEO</h1>
             <p className="text-center text-gray-400 md:pl-5 md:pr-5">See our top-selling firearms in action. Watch detailed reviews, demonstrations, 
                 and usage guides to make the most informed decision before you buy

@@ -86,3 +86,21 @@ padding-inline: 0;
   padding: 5px;
   object-fit: contain;
 }
+.swiper-button-next,
+.swiper-button-prev {
+  color: #facc15 !important; /* yellow-400 */
+}
+.swiper-button-next:hover{
+  transform: scale(1.2)!important;
+}
+.swiper-button-prev:hover{
+  transform: scale(1.2)!important;
+}
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem !important; /* moves dots downward */
+}
+
+.swiper-pagination-bullet{
+  background-color: #facc15 !important; /* yellow-400 */
+}
