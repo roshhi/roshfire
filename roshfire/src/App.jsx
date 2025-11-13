@@ -2,6 +2,8 @@ import Navbar from "./components/navbar"
 import Hero from "./components/hero"
 import WeaponCategories from "./components/WeaponCategories"
 import Order from "./components/Order"
+import Services from "./components/Services"
+import ProductVideo from "./components/ProductVideo"
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
       </div>
       <WeaponCategories/>
       <Order/>
+      <Services/>
+      <ProductVideo/>
     </>
   )
 }
