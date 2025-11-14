@@ -29,6 +29,7 @@ import knife3 from '../assets/images/k3.png'
 import knife4 from '../assets/images/k4.png'
 import knife5 from '../assets/images/k5.png'
 import knife6 from '../assets/images/k6.png'
+import { motion } from "framer-motion"
 
 
 
@@ -82,10 +83,22 @@ export default function WeaponCategories(){
         {src: knife5, name:'STILETTO'},
         {src: knife6, name:'YARBOROUGH'},
     ];
+    const containerVariants={
+        hidden:{},
+        visible:{
+            transition: {
+                staggerChildren: 0.25,
+            },
+        }
+    }
+    const itemsVariants={
+        hidden:{opacity:0},
+        visible:{opacity:1}
+    }
 
     return (
         <div className="relative bottom-[60px] md:bottom-[70px] lg:bottom-[80px] xl:bottom-[100px]">
-            <div className="flex items-center justify-center flex-col w-[90%] mx-auto bg-white">
+            <div  className="flex items-center justify-center flex-col w-[90%] mx-auto bg-white">
                 <div className="grid grid-cols-5 place-items-center w-[100%]  text-white extraSmallResFont h-[35px] font-medium">
                     {
                         categories.map((items)=>{
@@ -101,58 +114,58 @@ export default function WeaponCategories(){
                         })
                     }
                 </div>
-                <div className="weaponGrid grid grid-cols-3 gap-4 ml-4 bg-white pt-5 lg:grid-cols-6 mt-5">
+                <motion.div key={selected}  initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={containerVariants} className="weaponGrid grid grid-cols-3 gap-4 ml-4 bg-white pt-5 lg:grid-cols-6 mt-5">
                     {
                         selected === "handgun" && pistols.map((pistol)=>{
                             return(
-                                <div key={pistol.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <motion.div variants={itemsVariants}   key={pistol.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
                                     <img src={pistol.src} alt={pistol.name + " image"} />
                                     <p className="smallResFont mt-5">{pistol.name}</p>
-                                </div>
+                                </motion.div>
                             )
                         })
                     }
                     {
                         selected === "rifle" && rifles.map((rifle)=>{
                             return(
-                                <div key={rifle.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <motion.div variants={itemsVariants} key={rifle.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
                                     <img src={rifle.src} alt={rifle.name + " image"} />
                                     <p className="smallResFont mt-5">{rifle.name}</p>
-                                </div>
+                                </motion.div>
                             )
                         })
                     }
                     {
                         selected === "shotguns" && shotguns.map((shotgun)=>{
-                            return(
-                                <div key={shotgun.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                            return( 
+                                <motion.div variants={itemsVariants} key={shotgun.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
                                     <img src={shotgun.src} alt={shotgun.name + " image"} />
                                     <p className="smallResFont mt-5">{shotgun.name}</p>
-                                </div>
+                                </motion.div>
                             )
                         })
                     }
                     {
                         selected === "silencers" && silencers.map((silencer)=>{
                             return(
-                                <div key={silencer.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <motion.div variants={itemsVariants} key={silencer.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
                                     <img className="!p-5" src={silencer.src} alt={silencer.name + " image"} />
                                     <p className="smallResFont mt-5">{silencer.name}</p>
-                                </div>
+                                </motion.div>
                             )
                         })
                     }
                     {
                         selected === "knives" && knifes.map((knife)=>{
                             return(
-                                <div key={knife.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
+                                <motion.div variants={itemsVariants} key={knife.name} className="grid place-items-center border-2 hover:border-yellow-500 rounded-sm transform hover:translate-y-[-10px] transition-transform duration-300 hover:font-bold">
                                     <img className="!p-5" src={knife.src} alt={knife.name + " image"} />
                                     <p className="smallResFont mt-5">{knife.name}</p>
-                                </div>
+                                </motion.div>
                             )
                         })
                     }
-                </div>
+                </motion.div>
             </div>
         </div>
     )

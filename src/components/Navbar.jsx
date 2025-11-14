@@ -1,15 +1,21 @@
 import { LuChevronDown } from "react-icons/lu";
 import { useState } from "react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-export default function Navbar(){
+export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, testimonialRef }){
 
-    const [selected,setSelected] = useState("home")
+    const [selected,setSelected] = useState("home");
     const links = [
         { name: "home", label: "Home", icon: true },
         { name: "shop", label: "Shop" },
         { name: "about", label: "About Us" },
         { name: "contact", label: "Contact Us" },
-      ];
+    ];
+    const goToWeapons = () => weaponRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
+    const goToOrder = () => orderRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
+    const goToServices = () => servicesRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
+    const goToVideo = () => videoRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
+    const goToTestimonials = () => testimonialRef.current.scrollIntoView({ behavior: "smooth", block:"center"});  
 
     return(
         <>
@@ -29,21 +35,48 @@ export default function Navbar(){
                     ROSHFIRE
                 </div>
                 <div className="text-[rgb(10,10,10)] h-[100%] flex-center absolute right-4 lg:mr-[3.2vw]">
-                    <button className="bg-[#DFB159] border-4 border-[#DFB159] h-[60%] w-[70px] rounded-[5px] text-white lg:w-[120px] lg:h-[80%] lg:p-1 lg:font-semibold xl:w-[150px] xl:h-[90%] xl:font-semibold xl:mediumResFont hover:bg-white hover:text-[#DFB159] transition-colors delay-50 ">Login</button>
+                    <button  className="bg-[#DFB159] border border-[#DFB159] h-[60%] w-[70px] rounded-[5px] text-white lg:w-[120px] lg:h-[80%] lg:p-1 lg:font-semibold xl:w-[150px] xl:h-[90%] xl:font-semibold xl:mediumResFont hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50 ">Login</button>
                 </div>
             </div>
 
-            <div className=" h-[50px] border-t border-b border-[#9AA1AC] mt-8 flex items-center justify-evenly md:flex-center md:gap-[80px] lg:mt-11 lg:smallResFont xl:mediumResFont">
+            <div className=" relative h-[50px] border-t border-b border-[#9AA1AC] mt-8 flex items-center justify-evenly md:flex-center md:gap-[80px] lg:mt-11 lg:smallResFont xl:mediumResFont">
                 {
                     links.map((link)=>{
+                        const isHome = link.name === "home";
+
                         return(
                             <div
                                 key={link.name}
-                                className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${selected === link.name ? "selectedOptionNavbar" : "text-[#9AA1AC]" }`}
+                                className={`group relative flex items-center gap-1 cursor-pointer transition-all duration-200 ${selected === link.name ? "selectedOptionNavbar" : "text-[#9AA1AC]"}`}
                                 onClick={()=> setSelected(link.name)}
                             >
-                                <p>{link.label}</p>
+                                <p className="hover:text-[#DFB159]">{link.label}</p>
                                 {link.icon && <LuChevronDown size={16} />}
+                                
+                                {isHome &&( 
+                                    <div className={`absolute w-[200px] top-[30px] right-[-65px] text-gray-400 p-2 rounded-lg bg-[rgb(10,10,10)] border-2 border-[#DFB159] hidden group-hover:block`}>
+                                        <div onClick={goToWeapons} className="flex items-center hover:text-[#DFB159] cursor-pointer">
+                                            <MdOutlineKeyboardArrowRight />
+                                            <p> Our Collection</p>
+                                        </div>
+                                        <div onClick={goToOrder} className="flex items-center hover:text-[#DFB159] cursor-pointer">
+                                            <MdOutlineKeyboardArrowRight />
+                                            <p>Order</p>
+                                        </div>
+                                        <div onClick={goToServices} className="flex items-center hover:text-[#DFB159] cursor-pointer">
+                                            <MdOutlineKeyboardArrowRight />
+                                            <p>Services</p>
+                                        </div>
+                                        <div onClick={goToVideo} className="flex items-center hover:text-[#DFB159] cursor-pointer">
+                                            <MdOutlineKeyboardArrowRight />
+                                            <p>Popular Products</p>
+                                        </div>
+                                        <div onClick={goToTestimonials} className="flex items-center hover:text-[#DFB159] cursor-pointer">
+                                            <MdOutlineKeyboardArrowRight />
+                                            <p>Testimonials</p>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         )
                     })
