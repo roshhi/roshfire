@@ -1,6 +1,7 @@
 import { LuChevronDown } from "react-icons/lu";
 import { useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useNavigate } from "react-router";
 
 export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, testimonialRef }){
 
@@ -11,11 +12,13 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
         { name: "about", label: "About Us" },
         { name: "contact", label: "Contact Us" },
     ];
+    
     const goToWeapons = () => weaponRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
     const goToOrder = () => orderRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
     const goToServices = () => servicesRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
     const goToVideo = () => videoRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
     const goToTestimonials = () => testimonialRef.current.scrollIntoView({ behavior: "smooth", block:"center"});  
+    const navigate = useNavigate();
 
     return(
         <>
@@ -48,12 +51,20 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
                             <div
                                 key={link.name}
                                 className={`group relative flex items-center gap-1 cursor-pointer transition-all duration-200 ${selected === link.name ? "selectedOptionNavbar" : "text-[#9AA1AC]"}`}
-                                onClick={()=> setSelected(link.name)}
+                                onClick={()=> {
+                                    setSelected(link.name)
+                                    if (link.name === "shop") {
+                                        navigate('/shop')
+                                    }
+                                    else if (link.name === "home") {
+                                        navigate('/')
+                                    }
+                                }}
                             >
                                 <p className="hover:text-[#DFB159]">{link.label}</p>
                                 {link.icon && <LuChevronDown size={16} />}
                                 
-                                {isHome &&( 
+                                {isHome && selected==="home" &&( 
                                     <div className={`absolute w-[200px] top-[30px] right-[-65px] text-gray-400 p-2 rounded-lg bg-[rgb(10,10,10)] border-2 border-[#DFB159] hidden group-hover:block`}>
                                         <div onClick={goToWeapons} className="flex items-center hover:text-[#DFB159] cursor-pointer">
                                             <MdOutlineKeyboardArrowRight />

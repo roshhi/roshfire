@@ -30,8 +30,8 @@ export default function Services(){
         visible:{opacity:1,y:0,transition: { duration: 0.5 }}
     }
     return(
-        <div className='relative w-screen h-[500px] lg:h-[300px] mt-[80px] mb-[80px]  bg-cover bg-center bg-[url("./assets/images/featuredOffered.png")]'>
-            <motion.div initial="hidden" whileInView="visible" variants={containerVariants} className="absolute inset-0 bg-black/50 grid grid-cols-2 gap-5 p-5 lg:grid-cols-4 md:p-10">
+        <div className='relative w-screen h-[500px] lg:h-[300px] mt-[80px] mb-[80px]  bg-cover bg-center bg-[url("./assets/images/bgOrder.png")]'>
+            <motion.div initial="hidden" whileInView="visible" variants={containerVariants} className="absolute inset-0 bg-black/70 grid grid-cols-2 gap-5 p-5 lg:grid-cols-4 md:p-10">
                 <motion.div variants={itemsVariants} className="transform hover:translate-y-[-10px] transition-transform duration-300 group z-10 flex-center flex-col bg-white p-2 text-center rounded-sm gap-2 hover:border-4 hover:border-yellow-500">
                     <FaAward className="text-[40px] lg:text-[70px] mb-3 text-purple-500"/>
                     <p className="font-medium group-hover:font-bold ">TOP QUALITY</p>

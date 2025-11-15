@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <motion.div
       initial="hidden"
-      whileInView="visible" 
+      animate="visible" 
       variants={containerVariants}
       className="flex flex-col md:flex-row items-center pb-[50px] md:pb-[150px]"
     >
