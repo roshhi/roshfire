@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   background-color:rgb(255, 255, 255);
@@ -106,4 +107,36 @@ padding-inline: 0;
 
 .swiper-pagination-bullet{
   background-color: #facc15 !important; /* yellow-400 */
+}
+
+
+/* Loader */
+.loader {
+  position: fixed;
+  width: 60px;
+  height: 25px;
+  border: 2px solid;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: grid;
+  animation: l2 2s infinite linear;
+  color: #DFB159;
+  top: 50%;
+  left: 48%;
+  /* transform: translate(-50%,-50%); */
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  border: inherit;
+  border-radius: 50%;
+  animation: inherit;
+  animation-duration: 3s;
+}
+.loader:after {
+  --s:-1;
+}
+@keyframes l2 {
+   100% {transform:rotate(calc(var(--s,1)*1turn))}
 }

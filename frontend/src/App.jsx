@@ -1,12 +1,9 @@
-import Navbar from "./components/navbar"
-import Hero from "./components/hero"
-import WeaponCategories from "./components/WeaponCategories"
-import Order from "./components/Order"
-import Services from "./components/Services"
-import ProductVideo from "./components/ProductVideo"
-import Testimonials from "./components/Testimonial"
-import Footer from "./components/Footer"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import ShopPage from "./pages/ShopPage";
 import { useRef } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function App() {
 
@@ -17,31 +14,31 @@ export default function App() {
   const testimonialRef = useRef(null);
 
   return (
-    <>
+    <Router>
       <div className="bg-[rgb(10,10,10)]">
-        <Navbar weaponRef={weaponRef} orderRef={orderRef} servicesRef={servicesRef} videoRef={videoRef} testimonialRef={testimonialRef} />
-        <Hero/>
+        <Navbar
+          weaponRef={weaponRef}
+          orderRef={orderRef}
+          servicesRef={servicesRef}
+          videoRef={videoRef}
+          testimonialRef={testimonialRef}
+        />
       </div>
-      <div ref={weaponRef}>
-        <WeaponCategories/>
-      </div>
-
-      <div ref={orderRef}>
-        <Order/>
-      </div>
-
-      <div ref={servicesRef}>
-        <Services/>
-      </div>
-
-      <div ref={videoRef}>
-        <ProductVideo/>
-      </div>
-
-      <div ref={testimonialRef}>
-        <Testimonials/>
-      </div>
+      <Routes>
+        <Route path="/" element={
+          <LandingPage
+          weaponRef={weaponRef}
+          orderRef={orderRef}
+          servicesRef={servicesRef}
+          videoRef={videoRef}
+          testimonialRef={testimonialRef}
+        />
+        }/>
+        <Route path="/shop" element={
+          <ShopPage/>
+        }/>
+      </Routes>
       <Footer/>
-    </>
+    </Router>
   )
 }
