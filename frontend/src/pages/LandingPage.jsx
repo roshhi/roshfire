@@ -4,7 +4,6 @@ import Order from "../components/Order"
 import Services from "../components/Services"
 import ProductVideo from "../components/ProductVideo"
 import Testimonials from "../components/Testimonial"
-import Footer from "../components/Footer"
 
 export default function LandingPage({weaponRef,orderRef,servicesRef,videoRef,testimonialRef}){
 

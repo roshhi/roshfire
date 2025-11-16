@@ -4,6 +4,8 @@ import ShopPage from "./pages/ShopPage";
 import { useRef } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
 
 export default function App() {
 
@@ -32,10 +34,16 @@ export default function App() {
           servicesRef={servicesRef}
           videoRef={videoRef}
           testimonialRef={testimonialRef}
-        />
+         />
         }/>
         <Route path="/shop" element={
           <ShopPage/>
+        }/>
+        <Route path="/login" element={
+          <LoginPage/>
+        }/>
+        <Route path="/signup" element={
+          <SignUpPage/>
         }/>
       </Routes>
       <Footer/>
