@@ -1,17 +1,35 @@
 import { LuChevronDown } from "react-icons/lu";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useNavigate } from "react-router";
+import { ImCart } from "react-icons/im";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase/firbaseConfigFile";
+import { logout } from "../firebase/auth";
+import { toast,ToastContainer } from "react-toastify";
 
 export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, testimonialRef }){
 
     const [selected,setSelected] = useState("home");
+    const [user, setUser] = useState(null);
     const links = [
         { name: "home", label: "Home", icon: true },
         { name: "shop", label: "Shop" },
-        { name: "about", label: "About Us" },
-        { name: "contact", label: "Contact Us" },
+        { name: "cart" ,cart:true }
     ];
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser); // null if logged out, user object if logged in
+        });
+      
+        return () => unsubscribe(); // cleanup listener
+    }, []);
+    const handleLogout = async () => {
+        await logout();
+        toast.success("Logout Successful!");
+    };
+    
+      
     
     const goToWeapons = () => weaponRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
     const goToOrder = () => orderRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
@@ -37,9 +55,18 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
                 <div className="text-[#9AA1AC] orbitron-font largeResFont md:xLargeResFont lg:xxLargeResFont">
                     ROSHFIRE
                 </div>
-                <div className="text-[rgb(10,10,10)] h-[100%] flex-center absolute right-4 lg:mr-[3.2vw]">
-                    <button onClick={()=>{navigate('/login')}}  className="bg-[#DFB159] border border-[#DFB159] h-[60%] w-[70px] rounded-[5px] text-white lg:w-[120px] lg:h-[80%] lg:p-1 lg:font-semibold xl:w-[150px] xl:h-[90%] xl:font-semibold xl:mediumResFont hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50 ">Login</button>
-                </div>
+                {
+                    user ? (
+                        <div className="text-[rgb(10,10,10)] h-[100%] flex-center absolute right-4 lg:mr-[3.2vw]">
+                            <button onClick={handleLogout}  className="bg-[#DFB159] border border-[#DFB159] h-[60%] w-[70px] rounded-[5px] text-white lg:w-[120px] lg:h-[80%] lg:p-1 lg:font-semibold xl:w-[150px] xl:h-[90%] xl:font-semibold xl:mediumResFont hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50 ">Logout</button>
+                        </div>
+                    ) : (
+                        <div className="text-[rgb(10,10,10)] h-[100%] flex-center absolute right-4 lg:mr-[3.2vw]">
+                            <button onClick={()=>{navigate('/login')}}  className="bg-[#DFB159] border border-[#DFB159] h-[60%] w-[70px] rounded-[5px] text-white lg:w-[120px] lg:h-[80%] lg:p-1 lg:font-semibold xl:w-[150px] xl:h-[90%] xl:font-semibold xl:mediumResFont hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50 ">Login</button>
+                        </div>
+                    )
+                }
+                
             </div>
 
             <div className=" relative h-[50px] border-t border-b border-[#9AA1AC] mt-8 flex items-center justify-evenly md:flex-center md:gap-[80px] lg:mt-11 lg:smallResFont xl:mediumResFont">
@@ -59,11 +86,14 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
                                     else if (link.name === "home") {
                                         navigate('/')
                                     }
+                                    else if (link.name === "cart") {
+                                        navigate('/cart')
+                                    }
                                 }}
                             >
                                 <p className="hover:text-[#DFB159]">{link.label}</p>
                                 {link.icon && <LuChevronDown size={16} />}
-                                
+                                {link.cart && <ImCart size={25}/>}
                                 {isHome && selected==="home" &&( 
                                     <div className={`absolute w-[200px] top-[30px] right-[-65px] text-gray-400 p-2 rounded-lg bg-[rgb(10,10,10)] border-2 border-[#DFB159] hidden group-hover:block`}>
                                         <div onClick={goToWeapons} className="flex items-center hover:text-[#DFB159] cursor-pointer">

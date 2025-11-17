@@ -1,23 +1,42 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import { useState } from "react";
+import { login } from "../firebase/auth";
+import { toast,ToastContainer } from "react-toastify";
 
 export default function LoginPage() {
 
     const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(""); 
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+          await login(email, password);
+          toast.success("Login successful!");
+          navigate('/');
+        } catch (error) {
+            toast.error(error.message || "Login failed");
+        }
+    };
 
     return (
+        <>
         <div className="min-h-[87vh] bg-[#0c0c0c] flex items-center justify-center px-4">
             <div className="max-w-md w-full bg-[#111213] border border-[#1f1f1f] rounded-3xl p-10 shadow-xl">
-                <h1 className="text-4xl font-bold text-center mb-8 text-[#9AA1AC]">
+                <h1 className="text-4xl font-bold text-center mb-8 text-gray-200">
                 Welcome Back
                 </h1>
 
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleLogin}>
                     <div>
                         <label className="block text-gray-300 mb-1 text-sm">Email</label>
                         <input
                         type="email"
-                        className="w-full bg-[#0c0d0f] border border-[#1f1f1f] rounded-xl px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/50"
+                        value={email}
+                        onChange={(e)=> setEmail(e.target.value)}
+                        className="w-full bg-[#0c0d0f] border border-gray-200 rounded-xl px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/50"
                         />
                     </div>
 
@@ -25,7 +44,9 @@ export default function LoginPage() {
                         <label className="block text-gray-300 mb-1 text-sm">Password</label>
                         <input
                         type="password"
-                        className="w-full bg-[#0c0d0f] border border-[#1f1f1f] rounded-xl px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/50"
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        className="w-full bg-[#0c0d0f] border border-gray-200 rounded-xl px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/50"
                         />
                     </div>
 
@@ -42,5 +63,6 @@ export default function LoginPage() {
                 </p>
             </div>
         </div>
+        </>
     );
 }

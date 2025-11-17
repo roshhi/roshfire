@@ -31,8 +31,12 @@ export default function ShopPage() {
     )
   }
   return (
-    <>
-      <motion.div className="p-2 pt-10 md:pt-20 md:p-10 bg-[rgb(10,10,10)] min-h-screen grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+    <div className="bg-[rgb(10,10,10)]">
+      {/* <div className="grid">
+        <h1 className="m-auto text-gray-400 largeResFont md:xLargeResFont lg:xxLargeResFont">Discover our Collection</h1>
+        <p className="m-auto w-[25vw] text-center smallResFont text-[#DFB159]">Discover a premium collection of weapons crafted for precision, durability, and modern performance.</p>
+      </div> */}
+      <motion.div className="relative p-2 pt-10 md:pt-20 md:p-10 min-h-screen grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
         {
           weapons.map((weapon)=>{
             const [oldP, newP] = weapon.price.split(" ");
@@ -56,7 +60,7 @@ export default function ShopPage() {
           })
         }
       </motion.div>
-  </>
+  </div>
   );
 }
 

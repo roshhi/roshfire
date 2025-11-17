@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
+import { ToastContainer } from "react-toastify";
+import CartPage from "./pages/CartPage";
 
 export default function App() {
 
@@ -17,6 +19,7 @@ export default function App() {
 
   return (
     <Router>
+      <ToastContainer/>
       <div className="bg-[rgb(10,10,10)]">
         <Navbar
           weaponRef={weaponRef}
@@ -44,6 +47,9 @@ export default function App() {
         }/>
         <Route path="/signup" element={
           <SignUpPage/>
+        }/>
+        <Route path="/cart" element={
+          <CartPage/>
         }/>
       </Routes>
       <Footer/>

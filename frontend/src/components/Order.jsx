@@ -1,10 +1,11 @@
 import orderGun from "../assets/images/gun-order.png"
 import { FiChevronRight } from "react-icons/fi";
 import { motion } from "framer-motion"
-
+import { useNavigate } from "react-router";
 
 export default function Order(){
 
+    const navigate = useNavigate();
     const containerVariants={
         hidden:{},
         visible:{
@@ -34,13 +35,12 @@ export default function Order(){
                         <div>
                             <p className="largeResFont font-medium text-white">$2775.00</p>
                             <div className="flex-center bg-[#DFB159] border border-[#DFB159] w-[130px] p-2 rounded-[5px] mt-3 text-white lg:w-[130px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[160px] xl:mediumResFont xl:font-semibold hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50">
-                                <button>SHOP NOW</button>
+                                <button onClick={()=>navigate('/shop')}>SHOP NOW</button>
                                 <FiChevronRight/>
                             </div>
                         </div>
                 </motion.div>
             </motion.div>
         </div>
-        
     )
 }
