@@ -1,9 +1,8 @@
-import hero_gun from '../assets/images/hero-gun.jpg';
-import { motion } from 'framer-motion';
-import { Navigate, useNavigate } from 'react-router';
+import hero_gun from "../assets/images/hero-gun.jpg";
+import { motion } from "framer-motion";
+import { Navigate, useNavigate } from "react-router";
 
 export default function Hero() {
-    
   const containerVariants = {
     hidden: {},
     visible: {
@@ -26,7 +25,7 @@ export default function Hero() {
   return (
     <motion.div
       initial="hidden"
-      animate="visible" 
+      animate="visible"
       variants={containerVariants}
       className="flex flex-col md:flex-row items-center pb-[50px] md:pb-[150px]"
     >
@@ -44,16 +43,23 @@ export default function Hero() {
         </div>
         <p className="text-[#9AA1AC] xsmallResFont w-[90vw] mt-3 md:w-[50vw] lg:w-[40vw] xl:mediumResFont">
           At ROSHFIRE, we believe every weapon tells a story. Explore our
-          handpicked collection of premium arms designed to deliver
-          unmatched craftsmanship and performance.
+          handpicked collection of premium arms designed to deliver unmatched
+          craftsmanship and performance.
         </p>
-        <button onClick={()=>navigate("/shop")} className="bg-[#DFB159] border border-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:mediumResFont xl:font-semibold hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50">
+        <button
+          onClick={() => navigate("/shop")}
+          className="bg-[#DFB159] border border-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:mediumResFont xl:font-semibold hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50"
+        >
           Get Started
         </button>
       </motion.div>
 
       <motion.div variants={itemVariants2} className="mt-8 pb-8">
-        <img src={hero_gun} alt="A Pistol" className="md:h-[40vh] xl:h-[55vh]" />
+        <img
+          src={hero_gun}
+          alt="A Pistol"
+          className="md:h-[40vh] xl:h-[55vh]"
+        />
       </motion.div>
     </motion.div>
   );

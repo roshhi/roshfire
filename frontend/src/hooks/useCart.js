@@ -10,7 +10,7 @@ export default function useCart(){
     const [loading, setLoading] = useState(true);
 
 
-    // Get user
+    // Get user then get his cart from firestore db via user ID
     useEffect(() => {
         const unsub = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -23,7 +23,7 @@ export default function useCart(){
         return () => unsub();
     }, []);
 
-    // Fetch cart from Firestore
+    // Fetch cart from Firestore based on user ID provided
     const fetchCart = async (userId) => {
         setLoading(true);
 
@@ -39,7 +39,7 @@ export default function useCart(){
     // Add first time
     const addItem = async (image, title, price) => {
         if (!user) return;
-        const ref = doc(db, "users", user.uid, "cartItems", title);
+        const ref = doc(db, "users", user.uid, "cartItems", title); // Get me the Firestore document for this user’s specific cart item
         await setDoc(ref, {
             image,
             title,

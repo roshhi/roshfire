@@ -1,36 +1,25 @@
 import { LuChevronDown } from "react-icons/lu";
-import { useState,useEffect } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useNavigate } from "react-router";
 import { ImCart } from "react-icons/im";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/firbaseConfigFile";
 import { logout } from "../firebase/auth";
 import { toast} from "react-toastify";
 import { useLocation } from "react-router";
+import useCart from "../hooks/useCart";
 
 export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, testimonialRef }){
 
-    const [user, setUser] = useState(null);
+    const { user } = useCart();
     const links = [
-        { name: "home", label: "Home", to: "/home" },
+        { name: "home", label: "Home", to: "/home",icon:'true' },
         { name: "shop", label: "Shop", to: "/shop" },
         { name: "cart", to: "/cart", cart: true }
     ];
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-          setUser(currentUser); // null if logged out, user object if logged in
-        });
-      
-        return () => unsubscribe(); // cleanup listener
-    }, []);
     const handleLogout = async () => {
         await logout();
         navigate("/home")
         toast.success("Logout Successful!");
     };
-    
-      
     
     const goToWeapons = () => weaponRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
     const goToOrder = () => orderRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
@@ -95,7 +84,7 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
                                 <p className="hover:text-[#DFB159]">{link.label}</p>
                                 {link.icon && <LuChevronDown size={16} />}
                                 {link.cart && <ImCart size={25}/>}
-                                {isHome && location.pathname ==="/" &&( 
+                                {isHome && location.pathname ==="/home" &&( 
                                     <div className={`absolute w-[200px] top-[30px] right-[-65px] text-gray-400 p-2 rounded-lg bg-[rgb(10,10,10)] border-2 border-[#DFB159] hidden group-hover:block`}>
                                         <div onClick={goToWeapons} className="flex items-center hover:text-[#DFB159] cursor-pointer">
                                             <MdOutlineKeyboardArrowRight />
