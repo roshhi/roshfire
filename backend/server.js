@@ -7,7 +7,9 @@ import weaponRoutes from "./routes/weaponRoutes.js";
 dotenv.config(); // this loads all variables from .env into process.env
 
 const app = express();
-app.use(cors()); // allow frontend to fetch data from backend
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 // connect to mongoDB
