@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ShopPage from "./pages/ShopPage";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage";
@@ -10,11 +10,10 @@ import { ToastContainer } from "react-toastify";
 import CartPage from "./pages/CartPage";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firbaseConfigFile";
-import { useEffect } from "react";
 
 export default function App() {
 
-  const weaponRef = useRef(HTMLBodyElement);
+  const weaponRef = useRef(null);
   const orderRef = useRef(null);
   const servicesRef = useRef(null);
   const videoRef = useRef(null);

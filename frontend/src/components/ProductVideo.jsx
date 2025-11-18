@@ -36,7 +36,7 @@ export default function ProductVideo(){
                             src="https://www.youtube.com/embed/dM23JPTAqOg?autoplay=1"
                             title="YouTube video"
                             allow="autoplay"
-                            className="w-[100%] h-[100%] rounded-lg"
+                            className="w-[100%] h-[100%] rounded-lg  bg-black"
                             >
                         </iframe>
                     ) : (
