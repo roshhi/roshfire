@@ -27,8 +27,8 @@ export default function Order(){
                 </motion.div>
                 <motion.div variants={itemsVariants} className="ml-3 flex flex-col gap-1 md:w-[40%] mt-5">
                         <p className="xLargeResFont xl:xxxLargeResFont font-bold text-white">HOW TO ORDER</p>
-                        <p className="text-gray-400 smallResFont font-bold">NOTHING EVER WAS THIS EASY! PICK A FIREARM AND CHECK OUT WITH YOUR OWN ADDRESS</p>
-                        <p className="smallResFont font-medium xl:text-md text-[#DFB159]">We've made ordering simple and secure.
+                        <p className="text-[#DFB159] smallResFont font-bold">NOTHING EVER WAS THIS EASY! PICK A FIREARM AND CHECK OUT WITH YOUR OWN ADDRESS</p>
+                        <p className="smallResFont font-medium xl:text-md text-white">We've made ordering simple and secure.
                                     Choose your product, complete checkout, and receive tracking details once your order ships.
                                     Our team ensures every item is safely packaged and delivered on time.
                         </p>

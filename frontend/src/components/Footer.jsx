@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -43,14 +43,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t-2 border-[#DFB159] pt-6 pb-4 flex flex-col md:flex-row items-center justify-between">
+        <div className="border-t-2 border-[#DFB159] pt-6 pb-4 flex flex-col md:flex-row items-center justify-center gap-5 ">
           <p className="text-gray-500 text-sm">&copy; 2025 ROSHFIRE Weapon Store. All rights reserved.</p>
           
           <div className="flex mt-4 md:mt-0 space-x-4">
-            <a href="#" className="hover:text-[#DFB159] transition"><FaFacebookF /></a>
-            <a href="#" className="hover:text-[#DFB159] transition"><FaTwitter /></a>
-            <a href="#" className="hover:text-[#DFB159] transition"><FaInstagram /></a>
-            <a href="#" className="hover:text-[#DFB159] transition"><FaLinkedinIn /></a>
+            <a href="https://github.com/roshhi/roshfire" target="_blank" className="hover:text-[#DFB159] transition text-[25px]"><FaGithub /></a>
           </div>
         </div>
       </div>

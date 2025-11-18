@@ -1,5 +1,6 @@
 import hero_gun from '../assets/images/hero-gun.jpg';
 import { motion } from 'framer-motion';
+import { Navigate, useNavigate } from 'react-router';
 
 export default function Hero() {
     
@@ -11,6 +12,7 @@ export default function Hero() {
       },
     },
   };
+  const navigate = useNavigate();
 
   const itemVariants = {
     hidden: { opacity: 0, x: -300 },
@@ -45,7 +47,7 @@ export default function Hero() {
           handpicked collection of premium arms designed to deliver
           unmatched craftsmanship and performance.
         </p>
-        <button className="bg-[#DFB159] border border-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:mediumResFont xl:font-semibold hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50">
+        <button onClick={()=>navigate("/shop")} className="bg-[#DFB159] border border-[#DFB159] w-[100px] p-1 rounded-[5px] mt-3 text-white lg:w-[120px] lg:h-[80%] lg:p-2 lg:font-semibold xl:w-[150px] xl:mediumResFont xl:font-semibold hover:bg-transparent hover:text-[#DFB159] transition-colors delay-50">
           Get Started
         </button>
       </motion.div>

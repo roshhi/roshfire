@@ -6,16 +6,16 @@ import { ImCart } from "react-icons/im";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firbaseConfigFile";
 import { logout } from "../firebase/auth";
-import { toast,ToastContainer } from "react-toastify";
+import { toast} from "react-toastify";
+import { useLocation } from "react-router";
 
 export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, testimonialRef }){
 
-    const [selected,setSelected] = useState("home");
     const [user, setUser] = useState(null);
     const links = [
-        { name: "home", label: "Home", icon: true },
-        { name: "shop", label: "Shop" },
-        { name: "cart" ,cart:true }
+        { name: "home", label: "Home", to: "/home" },
+        { name: "shop", label: "Shop", to: "/shop" },
+        { name: "cart", to: "/cart", cart: true }
     ];
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -26,6 +26,7 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
     }, []);
     const handleLogout = async () => {
         await logout();
+        navigate("/home")
         toast.success("Logout Successful!");
     };
     
@@ -37,6 +38,7 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
     const goToVideo = () => videoRef.current.scrollIntoView({ behavior: "smooth", block:"center" });
     const goToTestimonials = () => testimonialRef.current.scrollIntoView({ behavior: "smooth", block:"center"});  
     const navigate = useNavigate();
+    const location = useLocation();
 
     return(
         <>
@@ -77,14 +79,13 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
                         return(
                             <div
                                 key={link.name}
-                                className={`group relative flex items-center gap-1 cursor-pointer transition-all duration-200 ${selected === link.name ? "selectedOptionNavbar" : "text-[#9AA1AC]"}`}
+                                className={`group relative flex items-center gap-1 cursor-pointer transition-all duration-200 ${location.pathname.startsWith(link.to) ? "selectedOptionNavbar" : "text-[#9AA1AC]"}`}
                                 onClick={()=> {
-                                    setSelected(link.name)
                                     if (link.name === "shop") {
-                                        navigate('/shop')
+                                        navigate('/shop');
                                     }
                                     else if (link.name === "home") {
-                                        navigate('/')
+                                        navigate('/home')
                                     }
                                     else if (link.name === "cart") {
                                         navigate('/cart')
@@ -94,7 +95,7 @@ export default function Navbar({ weaponRef, orderRef, servicesRef, videoRef, tes
                                 <p className="hover:text-[#DFB159]">{link.label}</p>
                                 {link.icon && <LuChevronDown size={16} />}
                                 {link.cart && <ImCart size={25}/>}
-                                {isHome && selected==="home" &&( 
+                                {isHome && location.pathname ==="/" &&( 
                                     <div className={`absolute w-[200px] top-[30px] right-[-65px] text-gray-400 p-2 rounded-lg bg-[rgb(10,10,10)] border-2 border-[#DFB159] hidden group-hover:block`}>
                                         <div onClick={goToWeapons} className="flex items-center hover:text-[#DFB159] cursor-pointer">
                                             <MdOutlineKeyboardArrowRight />

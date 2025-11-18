@@ -15,7 +15,7 @@ export default function SignUpPage() {
         try {
           await signup(email, password);
           toast.success("Sign Up Successful!");
-          navigate("/");
+          navigate("/home");
         } catch (error) {
           toast.error(error.message);
         }
