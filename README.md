@@ -33,7 +33,7 @@ A modern firearm e-commerce store built using **React + Tailwind**, powered by a
 * **React**
 * **Tailwind CSS**
 * **Framer Motion** 
-* **Swiper.js / Slider.js**
+* **Swiper.js**
 * **Custom React Hooks**
 
 ### **Backend**
