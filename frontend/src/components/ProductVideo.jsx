@@ -60,7 +60,7 @@ export default function ProductVideo(){
                             src="https://www.youtube.com/embed/h8l2wpXAcCc?autoplay=1"
                             allow="autoplay"
                             title="YouTube video"
-                            className="w-[100%] h-[100%] rounded-lg"
+                            className="w-[100%] h-[100%] rounded-lg bg-black"
                             >
                         </iframe>
                     ) : (
@@ -84,7 +84,7 @@ export default function ProductVideo(){
                             src="https://www.youtube.com/embed/HtwVDjapTU8?autoplay=1"
                             title="YouTube video"
                             allow="autoplay"
-                            className="w-[100%] h-[100%] rounded-lg"
+                            className="w-[100%] h-[100%] rounded-lg bg-black"
                             >
                         </iframe>
                     ) : (

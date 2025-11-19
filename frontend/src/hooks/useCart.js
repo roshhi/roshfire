@@ -8,7 +8,7 @@ export default function useCart(){
     const [user, setUser] = useState(null);
     const [cart, setCart] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    
 
     // Get user then get his cart from firestore db via user ID
     useEffect(() => {

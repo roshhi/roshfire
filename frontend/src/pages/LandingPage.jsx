@@ -1,32 +1,37 @@
-import Hero from "../components/Hero"
-import WeaponCategories from "../components/WeaponCategories"
-import Order from "../components/Order"
-import Services from "../components/Services"
-import ProductVideo from "../components/ProductVideo"
-import Testimonials from "../components/Testimonial"
+import Hero from "../components/Hero";
+import WeaponCategories from "../components/WeaponCategories";
+import Order from "../components/Order";
+import Services from "../components/Services";
+import ProductVideo from "../components/ProductVideo";
+import Testimonials from "../components/Testimonial";
 
-export default function LandingPage({weaponRef,orderRef,servicesRef,videoRef,testimonialRef}){
-
-  return(
-      <>
+export default function LandingPage({
+  weaponRef,
+  orderRef,
+  servicesRef,
+  videoRef,
+  testimonialRef,
+}) {
+  return (
+    <>
       <div className="bg-[rgb(10,10,10)]">
-        <Hero/>
+        <Hero />
       </div>
       <div ref={weaponRef}>
-        <WeaponCategories/>
+        <WeaponCategories />
       </div>
       <div ref={orderRef}>
-        <Order/>
+        <Order />
       </div>
       <div ref={servicesRef}>
-        <Services/>
+        <Services />
       </div>
       <div ref={videoRef}>
-        <ProductVideo/>
+        <ProductVideo />
       </div>
       <div ref={testimonialRef}>
-        <Testimonials/>
+        <Testimonials />
       </div>
     </>
-  )
+  );
 }
