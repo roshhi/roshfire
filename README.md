@@ -156,6 +156,12 @@ For major changes, open an issue first to discuss your proposal.
 
 ---
 
+## Credits
+
+Design inspired from https://dribbble.com/shots/23729899-Armaments-Online-Gun-Shop-Web-UI-Kit
+
+---
+
 ## License
 
 MIT License.
